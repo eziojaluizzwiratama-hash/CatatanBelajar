@@ -9,7 +9,11 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.kelompok4.CatatanBelajar.R
+import com.kelompok4.CatatanBelajar.ui.component.TombolInfoIkon
+import com.kelompok4.CatatanBelajar.ui.component.TombolTambahIkon
 import com.kelompok4.CatatanBelajar.ui.theme.CatatanBelajarTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -19,11 +23,16 @@ fun LayarUtamaScaffold(modifier: Modifier = Modifier) {
         modifier = modifier,
         topBar = {
             TopAppBar(
-                title = { Text("CatatanBelajar") },
+                title = { Text(stringResource(R.string.judul_app)) },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary
-                )
+                ),
+                // actions → slot di kanan TopAppBar untuk ikon-ikon aksi
+                actions = {
+                    TombolTambahIkon(onClick = { /* TODO: navigasi ke tambah catatan */ })
+                    TombolInfoIkon(onClick = { /* TODO: tampilkan info aplikasi */ })
+                }
             )
         }
     ) { innerPadding ->

@@ -11,8 +11,11 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kelompok4.CatatanBelajar.R
+import com.kelompok4.CatatanBelajar.ui.component.BannerIlustrasi
 
 @Composable
 fun RingkasanSesi(
@@ -27,6 +30,15 @@ fun RingkasanSesi(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
+        // Gambar banner ilustrasi belajar (Modul 3)
+        BannerIlustrasi()
+
+        // Teks sapa dari strings.xml dengan placeholder %1$s (Modul 3.4)
+        Text(
+            text = stringResource(R.string.sapa_pengguna, "Pelajar"),
+            style = MaterialTheme.typography.titleMedium
+        )
+
         Text(
             text = "Target Selesai Hari Ini: $jumlahSelesai",
             style = MaterialTheme.typography.headlineSmall
